@@ -60,6 +60,7 @@
             button3.TabIndex = 45;
             button3.Text = "Xóa";
             button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click_1;
             // 
             // label5
             // 
@@ -107,6 +108,7 @@
             button1.TabIndex = 36;
             button1.Text = "Thêm";
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
             // 
             // cbCategory
             // 

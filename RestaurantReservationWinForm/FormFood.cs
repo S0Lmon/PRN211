@@ -69,5 +69,29 @@ namespace RestaurantReservationWinForm
             loadFoods();
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Food food = new Food()
+            {
+                FoodName = textBox2.Text,
+                Category = context.Categories.SingleOrDefault(n => n.CategoryId == ((Category)cbCategory.SelectedItem).CategoryId),
+                Price = int.Parse(textBox3.Text.ToString())
+            };
+            context.Foods.Add(food);
+            context.SaveChanges();
+            loadFoods();
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            List<Food> list = new List<Food>();
+            foreach (DataGridViewRow row in tableDgv.SelectedRows)
+            {
+                list.Add(context.Foods.SingleOrDefault(n => n.FoodId == int.Parse(row.Cells[0].Value.ToString())));
+            }
+            context.Foods.RemoveRange(list);
+            MessageBox.Show("Xóa Thành Công");
+            loadFoods();
+        }
     }
 }
